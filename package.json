@@ -1,0 +1,20 @@
+{
+  "name": "demo-project",
+  "version": "0.0.0",
+  "private": "true",
+  "repository": "git@github.com:RaedsLab/demo-project.git",
+  "author": "Raed Chammam <raed.chammam@ricardo.ch>",
+  "devDependencies": {
+    "k6": "^0.0.0",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "openapi-typescript-codegen": "^0.7.0",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "setup": "sh ./setup.sh -y",
+    "clean": "sh ./clean.sh",
+    "load-test": "k6 run src/load_testing/hurtMe.js"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "dist",
+    "rootDir": "src",
+    "importHelpers": true,
+    "module": "commonjs",
+    "strict": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "downlevelIteration": true,
+    "moduleResolution": "node",
+    "target": "es5",
+    "lib": ["es6"],
+    "removeComments": true,
+    "composite": false,
+    "incremental": true,
+    "declaration": false,
+    "declarationMap": false,
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
+    "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo"
+  },
+  "include": ["./src", "./src/index.html"],
+  "exclude": ["node_modules"]
+}

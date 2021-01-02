@@ -1,0 +1,19 @@
+name: backend
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Yarn Install
+        run: yarn --cwd backend
+      - name: Run test
+        run: yarn --cwd backend test
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Yarn Install
+        run: yarn --cwd backend
+      - name: TypeScript Build
+        run: yarn --cwd backend build

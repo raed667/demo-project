@@ -1,0 +1,82 @@
+{
+  "name": "demo-project-frontend",
+  "private": true,
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "description": "Frontend of demo-project",
+  "author": {
+    "name": "Raed Chammam",
+    "email": "raed.chammam@gmail.com",
+    "url": "https://raed.dev"
+  },
+  "proxy": "http://localhost:3000",
+  "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "@material-ui/data-grid": "^4.0.0-alpha.10",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "axios": "^0.21.0",
+    "final-form": "^4.20.1",
+    "mui-rff": "^2.5.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-error-boundary": "^3.1.0",
+    "react-final-form": "^6.5.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "react-use-websocket": "^2.2.0",
+    "typescript": "^4.1.2",
+    "yup": "^0.31.1"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.6",
+    "@types/yup": "^0.29.9",
+    "cross-env": "^7.0.2",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "http-proxy-middleware": "^1.0.6",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "prettier-plugin-organize-imports": "^1.1.1"
+  },
+  "scripts": {
+    "start": "cross-env PORT=3006 react-scripts start",
+    "build": "react-scripts build",
+    "clean": "rimraf ./build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "tsc --noEmit && eslint --ext .ts --ext .tsx ./src",
+    "lint:format": "prettier --write 'src/**/*.+(ts|tsx)'",
+    "docker:build": "docker build --tag raedchammam/demo-project-frontend .",
+    "docker:run": "docker run -d -p 80:80 --name frontend raedchammam/demo-project-frontend",
+    "docker:stop-container": "docker stop frontend",
+    "docker:remove-container": "docker rm frontend",
+    "docker:remove-image": "docker rmi raedchammam/demo-project-frontend"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

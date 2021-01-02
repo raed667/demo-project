@@ -1,0 +1,19 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:@typescript-eslint/recommended", "prettier", "prettier/@typescript-eslint"],
+  "parserOptions": { "project": "./tsconfig.json" },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off", // in some cases, you cannot using anything else than any. It's the reviewer job to challenge if using any is incorrect
+    "@typescript-eslint/no-unused-vars": "error",
+    "camelcase": "off",
+    "import/no-cycle": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "off", // if we use @typescript-eslint/no-unused-vars, we cannot use that one at the same time
+    "prettier/prettier": "error",
+    "radix": ["error", "as-needed"]
+  }
+}

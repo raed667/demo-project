@@ -1,0 +1,16 @@
+{
+    "entryFile": "",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "controllerPathGlobs": [
+        "./src/controller/*"
+    ],
+    "spec": {
+        "outputDirectory": "src",
+        "specVersion": 3,
+        "basePath": "/api"
+    },
+    "routes": {
+        "routesDir": "src",
+        "basePath": "/api"
+    }
+}
