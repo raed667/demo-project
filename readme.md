@@ -9,6 +9,10 @@
 A demo project to showcase different technologies and how they work together.
 The ultimate goal is to have a full-stack, production-ready application.
 
+![ui](https://i.imgur.com/W7Armo5.png)
+
+You can use the `setup.sh` script to run it locally.
+
 [![asciicast](https://asciinema.org/a/lKhIcJG0YXbZfvkOpoWtzMUrM.svg)](https://asciinema.org/a/lKhIcJG0YXbZfvkOpoWtzMUrM)
 
 The goal for this project is to be a "domain driven" starter that will help you
