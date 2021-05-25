@@ -102,3 +102,6 @@ A high-level list of
 - [ ] Secure Nginx
 - [ ] Generate client from swagger.json
 - [ ] Deploy on a production environment (OVH, GCP, AWS..)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FRaedsLab%2Fdemo-project.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FRaedsLab%2Fdemo-project?ref=badge_large)
