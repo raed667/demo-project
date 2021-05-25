@@ -53,9 +53,9 @@ if (NODE_ENV === 'dev') {
   )
 }
 
-appExpress.get('/api/metrics', (_req: Request, res: Response) => {
+appExpress.get('/api/metrics', async (_req: Request, res: Response) => {
   res.set('Content-Type', prometheus.register.contentType)
-  res.end(prometheus.register.metrics())
+  res.end(await prometheus.register.metrics())
 })
 
 /** **********************************************************************************

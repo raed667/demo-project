@@ -5,6 +5,6 @@ export class DBError extends Error {
 
   constructor(message: string, public readonly queryError: QueryFailedError) {
     super(message)
-    this.code = ((queryError as unknown) as { code: string }).code
+    this.code = (queryError as unknown as { code: string }).code
   }
 }

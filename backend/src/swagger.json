@@ -66,28 +66,24 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Pick_Todo.Exclude_keyofTodo.id-or-date_created-or-date_updated__": {
+			"Pick_Todo.Exclude_keyofTodo.id-or-done-or-date_created-or-date_updated__": {
 				"properties": {
 					"text": {
 						"type": "string"
-					},
-					"done": {
-						"type": "boolean"
 					}
 				},
 				"required": [
-					"text",
-					"done"
+					"text"
 				],
 				"type": "object",
 				"description": "From T, pick a set of properties whose keys are in the union K"
 			},
-			"Omit_Todo.id-or-date_created-or-date_updated_": {
-				"$ref": "#/components/schemas/Pick_Todo.Exclude_keyofTodo.id-or-date_created-or-date_updated__",
+			"Omit_Todo.id-or-done-or-date_created-or-date_updated_": {
+				"$ref": "#/components/schemas/Pick_Todo.Exclude_keyofTodo.id-or-done-or-date_created-or-date_updated__",
 				"description": "Construct a type with the properties of T except for those in type K."
 			},
 			"TodoCreationParams": {
-				"$ref": "#/components/schemas/Omit_Todo.id-or-date_created-or-date_updated_"
+				"$ref": "#/components/schemas/Omit_Todo.id-or-done-or-date_created-or-date_updated_"
 			},
 			"IUpdateTodoRequest": {
 				"properties": {

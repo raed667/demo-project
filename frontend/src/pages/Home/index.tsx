@@ -1,11 +1,11 @@
 import { Button, Paper, Typography } from '@material-ui/core'
 import {
-  ColDef,
   DataGrid,
-  RowModel,
-  SelectionChangeParams,
-  ValueFormatterParams,
-  ValueGetterParams,
+  GridColDef,
+  GridRowModel,
+  GridSelectionModelChangeParams,
+  GridValueFormatterParams,
+  GridValueGetterParams,
 } from '@material-ui/data-grid'
 import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined'
 import RadioButtonUncheckedOutlinedIcon from '@material-ui/icons/RadioButtonUncheckedOutlined'
@@ -21,7 +21,7 @@ import { useStyles } from './style'
 export const Home = () => {
   const classes = useStyles()
 
-  const [todoList, setTodoList] = React.useState<RowModel[]>([])
+  const [todoList, setTodoList] = React.useState<GridRowModel[]>([])
   const [selected, setSelected] = React.useState<string[]>([])
   const [isLoading, setLoading] = React.useState(false)
   const [isDeleteDialogOpen, setDeleteDialogOpen] = React.useState(false)
@@ -41,8 +41,8 @@ export const Home = () => {
     })()
   }, [])
 
-  const onSelectionChange = (param: SelectionChangeParams) => {
-    setSelected(param.rowIds.map((id) => id.toString()))
+  const onSelectionModelChange = ({ selectionModel }: GridSelectionModelChangeParams) => {
+    setSelected(selectionModel.map((id) => id.toString()))
   }
 
   const onAcceptDelete = async () => {
@@ -64,12 +64,12 @@ export const Home = () => {
     setAddDialogOpen(false)
   }
 
-  const columns: ColDef[] = [
+  const columns: GridColDef[] = [
     {
       field: 'id',
       headerName: 'ID',
       width: 130,
-      valueGetter: (params: ValueGetterParams) => params?.value?.toString().substr(0, 8) || '',
+      valueGetter: (params: GridValueGetterParams) => params?.value?.toString().substr(0, 8) || '',
       disableClickEventBubbling: true,
     },
     { field: 'text', headerName: 'Todo', width: 250, disableClickEventBubbling: true },
@@ -78,7 +78,7 @@ export const Home = () => {
       headerName: 'Done',
       width: 250,
       disableClickEventBubbling: true,
-      renderCell: (params: ValueFormatterParams) => {
+      renderCell: (params: GridValueFormatterParams) => {
         const onClick = () => {
           updateTodo(`${params.row.id}`, !params.value)
           setTodoList((old) =>
@@ -153,7 +153,7 @@ export const Home = () => {
           <DataGrid
             rows={todoList}
             columns={columns}
-            onSelectionChange={onSelectionChange}
+            onSelectionModelChange={onSelectionModelChange}
             checkboxSelection
             autoHeight
             hideFooter
