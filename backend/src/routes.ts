@@ -33,19 +33,19 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "Pick_Todo.Exclude_keyofTodo.id-or-date_created-or-date_updated__": {
+    "Pick_Todo.Exclude_keyofTodo.id-or-done-or-date_created-or-date_updated__": {
         "dataType": "refAlias",
-        "type": {"dataType":"nestedObjectLiteral","nestedProperties":{"text":{"dataType":"string","required":true},"done":{"dataType":"boolean","required":true}},"validators":{}},
+        "type": {"dataType":"nestedObjectLiteral","nestedProperties":{"text":{"dataType":"string","required":true}},"validators":{}},
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "Omit_Todo.id-or-date_created-or-date_updated_": {
+    "Omit_Todo.id-or-done-or-date_created-or-date_updated_": {
         "dataType": "refAlias",
-        "type": {"ref":"Pick_Todo.Exclude_keyofTodo.id-or-date_created-or-date_updated__","validators":{}},
+        "type": {"ref":"Pick_Todo.Exclude_keyofTodo.id-or-done-or-date_created-or-date_updated__","validators":{}},
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "TodoCreationParams": {
         "dataType": "refAlias",
-        "type": {"ref":"Omit_Todo.id-or-date_created-or-date_updated_","validators":{}},
+        "type": {"ref":"Omit_Todo.id-or-done-or-date_created-or-date_updated_","validators":{}},
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "IUpdateTodoRequest": {
@@ -67,7 +67,7 @@ export function RegisterRoutes(app: express.Router) {
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
         app.get('/api/todos/:id',
-            function (request: any, response: any, next: any) {
+            function TodoController_getById(request: any, response: any, next: any) {
             const args = {
                     id: {"in":"path","name":"id","required":true,"dataType":"string"},
             };
@@ -85,11 +85,11 @@ export function RegisterRoutes(app: express.Router) {
 
 
             const promise = controller.getById.apply(controller, validatedArgs as any);
-            promiseHandler(controller, promise, response, next);
+            promiseHandler(controller, promise, response, undefined, next);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/api/todos',
-            function (request: any, response: any, next: any) {
+            function TodoController_get(request: any, response: any, next: any) {
             const args = {
                     page: {"default":1,"in":"query","name":"page","dataType":"double"},
                     pageSize: {"default":10,"in":"query","name":"pageSize","dataType":"double"},
@@ -108,11 +108,11 @@ export function RegisterRoutes(app: express.Router) {
 
 
             const promise = controller.get.apply(controller, validatedArgs as any);
-            promiseHandler(controller, promise, response, next);
+            promiseHandler(controller, promise, response, undefined, next);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.post('/api/todos',
-            function (request: any, response: any, next: any) {
+            function TodoController_create(request: any, response: any, next: any) {
             const args = {
                     requestBody: {"in":"body","name":"requestBody","required":true,"ref":"TodoCreationParams"},
             };
@@ -130,11 +130,11 @@ export function RegisterRoutes(app: express.Router) {
 
 
             const promise = controller.create.apply(controller, validatedArgs as any);
-            promiseHandler(controller, promise, response, next);
+            promiseHandler(controller, promise, response, undefined, next);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.post('/api/todos/:id',
-            function (request: any, response: any, next: any) {
+            function TodoController_updateStatus(request: any, response: any, next: any) {
             const args = {
                     id: {"in":"path","name":"id","required":true,"dataType":"string"},
                     requestBody: {"in":"body","name":"requestBody","required":true,"ref":"IUpdateTodoRequest"},
@@ -153,11 +153,11 @@ export function RegisterRoutes(app: express.Router) {
 
 
             const promise = controller.updateStatus.apply(controller, validatedArgs as any);
-            promiseHandler(controller, promise, response, next);
+            promiseHandler(controller, promise, response, undefined, next);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.delete('/api/todos/:id',
-            function (request: any, response: any, next: any) {
+            function TodoController_delete(request: any, response: any, next: any) {
             const args = {
                     id: {"in":"path","name":"id","required":true,"dataType":"string"},
             };
@@ -175,7 +175,7 @@ export function RegisterRoutes(app: express.Router) {
 
 
             const promise = controller.delete.apply(controller, validatedArgs as any);
-            promiseHandler(controller, promise, response, next);
+            promiseHandler(controller, promise, response, undefined, next);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -188,14 +188,14 @@ export function RegisterRoutes(app: express.Router) {
         return 'getHeaders' in object && 'getStatus' in object && 'setStatus' in object;
     }
 
-    function promiseHandler(controllerObj: any, promise: any, response: any, next: any) {
+    function promiseHandler(controllerObj: any, promise: any, response: any, successStatus: any, next: any) {
         return Promise.resolve(promise)
             .then((data: any) => {
-                let statusCode;
+                let statusCode = successStatus;
                 let headers;
                 if (isController(controllerObj)) {
                     headers = controllerObj.getHeaders();
-                    statusCode = controllerObj.getStatus();
+                    statusCode = controllerObj.getStatus() || statusCode;
                 }
 
                 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -208,18 +208,21 @@ export function RegisterRoutes(app: express.Router) {
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
     function returnHandler(response: any, statusCode?: number, data?: any, headers: any = {}) {
+        if (response.headersSent) {
+            return;
+        }
         Object.keys(headers).forEach((name: string) => {
             response.set(name, headers[name]);
         });
         if (data && typeof data.pipe === 'function' && data.readable && typeof data._read === 'function') {
             data.pipe(response);
-        } else if (data || data === false) { // === false allows boolean result
+        } else if (data !== null && data !== undefined) {
             response.status(statusCode || 200).json(data);
         } else {
             response.status(statusCode || 204).end();
         }
     }
-    
+
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
     function responder(response: any): TsoaResponse<HttpStatusCodeLiteral, unknown>  {
@@ -247,6 +250,14 @@ export function RegisterRoutes(app: express.Router) {
                     return validationService.ValidateParam(args[key], request.body, name, fieldErrors, undefined, {"noImplicitAdditionalProperties":"throw-on-extras"});
                 case 'body-prop':
                     return validationService.ValidateParam(args[key], request.body[name], name, fieldErrors, 'body.', {"noImplicitAdditionalProperties":"throw-on-extras"});
+                case 'formData':
+                    if (args[key].dataType === 'file') {
+                        return validationService.ValidateParam(args[key], request.file, name, fieldErrors, undefined, {"noImplicitAdditionalProperties":"throw-on-extras"});
+                    } else if (args[key].dataType === 'array' && args[key].array.dataType === 'file') {
+                        return validationService.ValidateParam(args[key], request.files, name, fieldErrors, undefined, {"noImplicitAdditionalProperties":"throw-on-extras"});
+                    } else {
+                        return validationService.ValidateParam(args[key], request.body[name], name, fieldErrors, undefined, {"noImplicitAdditionalProperties":"throw-on-extras"});
+                    }
                 case 'res':
                     return responder(response);
             }
