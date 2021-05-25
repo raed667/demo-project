@@ -3,6 +3,7 @@
 ![backend](https://github.com/RaedsLab/demo-project/workflows/backend/badge.svg)
 ![backend-realtime](https://github.com/RaedsLab/demo-project/workflows/backend-realtime/badge.svg)
 ![frontend](https://github.com/RaedsLab/demo-project/workflows/frontend/badge.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FRaedsLab%2Fdemo-project.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FRaedsLab%2Fdemo-project?ref=badge_shield)
 
 ![chart](https://i.imgur.com/6ELu2fx.png)
 
@@ -102,3 +103,7 @@ A high-level list of
 - [ ] Secure Nginx
 - [ ] Generate client from swagger.json
 - [ ] Deploy on a production environment (OVH, GCP, AWS..)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FRaedsLab%2Fdemo-project.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FRaedsLab%2Fdemo-project?ref=badge_large)
