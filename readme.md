@@ -1,8 +1,8 @@
 # Demo-Project: Full-stack TypeScript application
 
-![backend](https://github.com/RaedsLab/demo-project/workflows/backend/badge.svg)
-![backend-realtime](https://github.com/RaedsLab/demo-project/workflows/backend-realtime/badge.svg)
-![frontend](https://github.com/RaedsLab/demo-project/workflows/frontend/badge.svg)
+![backend](https://github.com/Raed667/demo-project/workflows/backend/badge.svg)
+![backend-realtime](https://github.com/Raed667/demo-project/workflows/backend-realtime/badge.svg)
+![frontend](https://github.com/Raed667/demo-project/workflows/frontend/badge.svg)
 
 ![chart](https://i.imgur.com/6ELu2fx.png)
 
