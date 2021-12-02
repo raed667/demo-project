@@ -2,8 +2,8 @@
   "name": "demo-project",
   "version": "0.0.0",
   "private": "true",
-  "repository": "git@github.com:RaedsLab/demo-project.git",
-  "author": "Raed Chammam <raed.chammam@ricardo.ch>",
+  "repository": "git@github.com:Raed667/demo-project.git",
+  "author": "Raed Chammam <raed.chammam@gmail.com>",
   "devDependencies": {
     "k6": "^0.0.0",
     "typescript": "^4.2.4"
