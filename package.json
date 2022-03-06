@@ -6,10 +6,10 @@
   "author": "Raed Chammam <raed.chammam@gmail.com>",
   "devDependencies": {
     "k6": "^0.0.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.6.2"
   },
   "dependencies": {
-    "openapi-typescript-codegen": "^0.9.3",
+    "openapi-typescript-codegen": "^0.20.1",
     "rimraf": "^3.0.2"
   },
   "scripts": {

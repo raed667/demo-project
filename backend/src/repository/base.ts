@@ -1,4 +1,4 @@
-import { FindConditions, FindManyOptions, FindOneOptions, Repository } from 'typeorm'
+import { FindConditions, FindManyOptions, FindOneOptions, Repository, DeepPartial } from 'typeorm'
 import { DBError } from '../common/errors/db-error'
 import { IBaseModel, BaseModel } from './model/base'
 import { getDbConnection } from './database'
@@ -19,9 +19,7 @@ export abstract class BaseRepository<
   // Properties in an existing record
   Props extends IBaseModel,
   // Class representing TypeORM model
-  Class extends BaseModel & Props,
-  // Properties required to create this record
-  CreateProps
+  Class extends BaseModel & Props
 > {
   constructor(private readonly classFn: new () => Class) {}
 
@@ -49,7 +47,7 @@ export abstract class BaseRepository<
     return results
   }
 
-  public async create(model: CreateProps): Promise<Props> {
+  public async create(model: DeepPartial<Class>) {
     const now = new Date()
 
     const result = await this.execute((repo) =>
@@ -59,16 +57,17 @@ export abstract class BaseRepository<
         date_updated: now,
       })
     )
+
     this.addToCache(result)
     return result
   }
 
-  public async update(model: Props): Promise<Props> {
+  public async update(model: DeepPartial<Class>) {
     const result = await this.execute((repo) =>
       repo.save({
         ...model,
         date_updated: new Date(),
-      } as CreateProps & Props)
+      })
     )
     this.addToCache(result)
     return result
@@ -86,7 +85,7 @@ export abstract class BaseRepository<
     try {
       const repo = await this.getRepository()
       return await fn(repo)
-    } catch (err) {
+    } catch (err: any) {
       throw new DBError(err.message, err)
     }
   }
@@ -96,11 +95,11 @@ export abstract class BaseRepository<
     return connection.getRepository<Class>(this.classFn)
   }
 
-  private addToCache(result: Props) {
+  private addToCache(result: any) {
     const redis = this.cache
     if (redis) {
       redis.set(
-        `${this.classFn.name}-${result.id}`,
+        `${this.classFn.name}-${result?.id}`,
         JSON.stringify(result),
         'EX',
         60 * 5 // Expire after 5 minutes
