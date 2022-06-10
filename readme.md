@@ -1,4 +1,6 @@
-# Demo-Project: Full-stack TypeScript application
+# Demo-Project: Full-stack TypeScript Application
+
+Status: On hold until refactor using [Nest](https://nestjs.com/)
 
 ![backend](https://github.com/Raed667/demo-project/workflows/backend/badge.svg)
 ![backend-realtime](https://github.com/Raed667/demo-project/workflows/backend-realtime/badge.svg)
@@ -99,6 +101,8 @@ A high-level list of
 - [x] Kafka consumer for real-time events
 - [x] Web-Socket
 - [x] Start-up script
+- [ ] Refactor backend to use Nest
+- [ ] Refactor frontend to use Next
 - [ ] Secure Nginx
 - [ ] Generate client from swagger.json
 - [ ] Deploy on a production environment (OVH, GCP, AWS..)
