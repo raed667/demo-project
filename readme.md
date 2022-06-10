@@ -102,7 +102,7 @@ A high-level list of
 - [x] Web-Socket
 - [x] Start-up script
 - [ ] Refactor backend to use Nest
-- [ ] Refactor frontend to use Next
+- [ ] Refactor frontend to use Next (or remix)
 - [ ] Secure Nginx
 - [ ] Generate client from swagger.json
 - [ ] Deploy on a production environment (OVH, GCP, AWS..)
