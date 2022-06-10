@@ -1,13 +1,5 @@
 #!/bin/sh
 
-#  ______               _
-#  | ___ \             | |
-#  | |_/ /__ _  ___  __| |
-#  |    // _` |/ _ \/ _` |
-#  | |\ \ (_| |  __/ (_| |
-#  \_| \_\__,_|\___|\__,_|
-#
-#  v0.0.0
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 # INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
